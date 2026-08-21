@@ -7,7 +7,7 @@ using User_API.Models;
 
 namespace User_API;
 
-// Function 1 accepts user info as JSON and stores it in Azure Table Storage
+// Function 1 accepts the user info as JSON and stores it in Azure Table Storage
 // <!-- Microsoft Learn, 2024 [1] -->
 // <!-- Azure Functions HTTP trigger is learned and used from Microsoft Learn -->
 public class Function1
@@ -44,7 +44,7 @@ public class Function1
 
             // Server generates the Id, meaning that the client should not send an id
             // <!-- Microsoft Learn, 2024 [3] -->
-            // <!--  was learned, gathered and used from Microsoft Learn -->
+            // <!-- The Guid.NewGuid method was learned, gathered and used from Microsoft Learn -->
             user.Id = Guid.NewGuid().ToString();
             user.PartitionKey = "User";
             user.RowKey = user.Id;
@@ -52,7 +52,7 @@ public class Function1
             var tableClient = _tableServiceClient.GetTableClient("User");
             tableClient.AddEntity(user);
 
-            return new OkObjectResult(new {message = "User saved", id = user.Id});
+            return new OkObjectResult(new { message = "User saved", id = user.Id });
         }
         catch (Exception ex)
         {
@@ -66,5 +66,6 @@ public class Function1
 // <!-- REFERENCE LIST -->
 // -----------------------------
 // <!-- Microsoft Learn. 2024[1]. Azure Functions HTTP trigger, Azure Functions [Online]. Available at: <https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=python-v2%2Cisolated-process%2Cnodejs-v4%2Cfunctionsv2&pivots=programming-language-csharp> [Accessed 8 August 2026]. -->
-// <!-- Microsoft Learn. 2024[2]. , Azure Functions [Online]. Available at:  [Accessed 8 August 2026]. -->
-// <!-- Microsoft Learn. 2024[3]. , Azure Functions [Online]. Available at:  [Accessed 8 August 2026]. -->
+// <!-- Microsoft Learn. 2024[2]. Azure Functions Overview, Azure Functions [Online]. Available at: <https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview>  [Accessed 8 August 2026]. -->
+// <!-- Microsoft Learn. 2024[3]. Guid.NewGuid Method, Azure Functions [Online]. Available at: <https://learn.microsoft.com/en-us/dotnet/api/system.guid.newguid?view=net-10.0> [Accessed 8 August 2026]. -->
+// <!-- Microsoft Learn. 2024[6]. ObjectResult Class, Azure Functions [Online]. Available at: <https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.objectresult?view=aspnetcore-10.0> [Accessed 9 August 2026]. -->

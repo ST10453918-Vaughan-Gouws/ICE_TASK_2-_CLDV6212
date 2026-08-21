@@ -6,8 +6,8 @@ using Azure;
 
 namespace User_API.Models
 {
-    // <!-- Microsoft Learn, 2024 [A] -->
-    // <!-- ITableEntity is taken and used from Microsoft Learn -->
+    // <!-- Microsoft Learn, 2024 [c] -->
+    // <!-- ITableEntity was taken and used from Microsoft Learn -->
     public class User : ITableEntity
     {
         public string Id { get; set; }
@@ -24,7 +24,7 @@ namespace User_API.Models
 
 // <!-- REFERENCE LIST -->
 // ---------------------------
-// <!-- Microsoft Learn. 2024 [A]. ITableEntity Interface, Azure Functions [Online]. Available at: <https://learn.microsoft.com/en-us/dotnet/api/azure.data.tables.itableentity?view=azure-dotnet> [Accessed 8 August 2026]. -->
+// <!-- Microsoft Learn. 2024[c]. ITableEntity Interface, Azure Functions [Online]. Available at: <https://learn.microsoft.com/en-us/dotnet/api/azure.data.tables.itableentity?view=azure-dotnet> [Accessed 8 August 2026]. -->
 
 
 
